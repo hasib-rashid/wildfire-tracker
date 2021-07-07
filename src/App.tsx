@@ -18,26 +18,33 @@ function App() {
 			const { events } = await data
 
 			console.log(events)
-		}
+			const markerPoints = events.map((ev: any) => {
+				if (ev.categories[0].id === 8) {
+					return <Marker position={[ev.geometries[0].coordinates[1], ev.geometries[0].coordinates[0]]} />
+				}
+				return null
+			},
 
-		Events()
+				Events())
+		}
 	})
 
-	const position: any = [51.505, -0.09]
+
 	return (
-		<MapContainer className="Map" center={position} zoom={2} scrollWheelZoom={true}>
+		<MapContainer className="Map" center={[51.505, -0.09]} zoom={2} scrollWheelZoom={true}>
 			<TileLayer
 				attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 				url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
 			/>
 
-			<Marker icon={markerIcon} position={position}>
+			<Marker icon={markerIcon} position={[51.505, -0.09]}>
 				<Popup>
 					A pretty CSS3 popup. <br /> Easily customizable.
 				</Popup>
 			</Marker>
 		</MapContainer>
-	);
+	)
 }
-
 export default App;
+
+
