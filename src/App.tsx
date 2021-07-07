@@ -6,12 +6,12 @@ import 'leaflet/dist/leaflet.css'
 import './App.css';
 
 const markerIcon = L.icon({
-	iconUrl: "https://avatars.githubusercontent.com/u/46283609?s=30&v=4"
+	iconUrl: "https://avatars.githubusercontent.com/u/46283609?s=30&v=30"
 });
 
 function App() {
-	const [eventData, setEventData] = useState([])
-	const [loading, setLoading] = useState(false)
+
+	const [event, setEvent] = useState([])
 
 	useEffect(() => {
 		const Events = async () => {
@@ -21,18 +21,18 @@ function App() {
 
 			console.log(events)
 
-			const markerPoints = events.map((ev: any) => {
-				if (ev.categories[0].id === 8) {
-					return <Marker position={[ev.geometries[0].coordinates[1], ev.geometries[0].coordinates[0]]} />
-				}
-				return null
-			},
-
-				Events())
+			setEvent(events)
 		}
+
+		Events()
 	})
 
-
+	const markerPoints: any = event.map((ev: any) => {
+		if (ev.categories[0].id === 8) {
+			return <Marker icon={markerIcon} position={[ev.geometries[0].coordinates[1], ev.geometries[0].coordinates[0]]} />
+		}
+		return null
+	})
 
 	return (
 		<MapContainer className="Map" center={[51.505, -0.09]} zoom={2} scrollWheelZoom={true}>
@@ -41,7 +41,7 @@ function App() {
 				url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
 			/>
 
-			{ }
+			{markerPoints}
 
 		</MapContainer>
 	)
