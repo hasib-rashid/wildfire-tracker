@@ -18,6 +18,7 @@ function App() {
 			const { events } = await data
 
 			console.log(events)
+
 			const markerPoints = events.map((ev: any) => {
 				if (ev.categories[0].id === 8) {
 					return <Marker position={[ev.geometries[0].coordinates[1], ev.geometries[0].coordinates[0]]} />
@@ -30,6 +31,7 @@ function App() {
 	})
 
 
+
 	return (
 		<MapContainer className="Map" center={[51.505, -0.09]} zoom={2} scrollWheelZoom={true}>
 			<TileLayer
@@ -37,11 +39,8 @@ function App() {
 				url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
 			/>
 
-			<Marker icon={markerIcon} position={[51.505, -0.09]}>
-				<Popup>
-					A pretty CSS3 popup. <br /> Easily customizable.
-				</Popup>
-			</Marker>
+			{ }
+
 		</MapContainer>
 	)
 }
