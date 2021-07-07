@@ -35,7 +35,7 @@ function App() {
 	})
 
 	return (
-		<MapContainer className="Map" center={[51.505, -0.09]} zoom={2} scrollWheelZoom={true}>
+		<MapContainer className="Map" center={[40.7608, -111.8910]} zoom={5} scrollWheelZoom={true}>
 			<TileLayer
 				attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 				url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
