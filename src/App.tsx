@@ -11,6 +11,18 @@ const markerIcon = L.icon({
 
 
 function App() {
+	useEffect(() => {
+		const Events = async () => {
+			const request = await axios.get("https://eonet.sci.gsfc.nasa.gov/api/v2.1/events")
+			const { data } = await request
+			const { events } = await data
+
+			console.log(events)
+		}
+
+		Events()
+	})
+
 	const position: any = [51.505, -0.09]
 	return (
 		<MapContainer className="Map" center={position} zoom={2} scrollWheelZoom={true}>
@@ -18,6 +30,7 @@ function App() {
 				attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
 				url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
 			/>
+
 			<Marker icon={markerIcon} position={position}>
 				<Popup>
 					A pretty CSS3 popup. <br /> Easily customizable.
