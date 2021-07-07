@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
 import { default as axios } from 'axios'
@@ -9,8 +9,10 @@ const markerIcon = L.icon({
 	iconUrl: "https://avatars.githubusercontent.com/u/46283609?s=30&v=4"
 });
 
-
 function App() {
+	const [eventData, setEventData] = useState([])
+	const [loading, setLoading] = useState(false)
+
 	useEffect(() => {
 		const Events = async () => {
 			const request = await axios.get("https://eonet.sci.gsfc.nasa.gov/api/v2.1/events")
