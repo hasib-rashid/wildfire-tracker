@@ -31,10 +31,12 @@ function App() {
 		if (ev.categories[0].id === 8) {
 			return (
 				<Marker icon={markerIcon} position={[ev.geometries[0].coordinates[1], ev.geometries[0].coordinates[0]]}>
-					<Popup className="Popup">
-						<h3>{ev.title}</h3>
-						<p>Source: <a href={ev.sources.url}>{ev.sources[0].id}</a></p>
-						<p>ID: {ev.id}</p>
+					<Popup className="pop">
+						<div>
+							<h3>{ev.title}</h3>
+							<p>Source: <a href={ev.sources.url}>{ev.sources[0].id}</a></p>
+							<p>ID: {ev.id}</p>
+						</div>
 					</Popup>
 				</Marker>
 			)
