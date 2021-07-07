@@ -1,6 +1,7 @@
 import React from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
+import { default as axios } from 'axios'
 import 'leaflet/dist/leaflet.css'
 import './App.css';
 
