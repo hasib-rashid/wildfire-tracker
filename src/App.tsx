@@ -45,18 +45,23 @@ function App() {
 	})
 
 	return (
-		<MapContainer className="Map" center={[40.7608, -111.8910]} zoom={5} scrollWheelZoom={true}>
-			<header>
-				<h2>Wildfire Tracker</h2>
-			</header>
-			<TileLayer
-				attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-				url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
-			/>
+		<main>
+			<nav>
+				<header>
+					<h2>Wildfire Tracker</h2>
+				</header>
+			</nav>
+			<MapContainer className="Map" center={[40.7608, -111.8910]} zoom={5} scrollWheelZoom={true}>
 
-			{markerPoints}
+				<TileLayer
+					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+					url="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
+				/>
 
-		</MapContainer>
+				{markerPoints}
+
+			</MapContainer>
+		</main>
 	)
 }
 export default App;
