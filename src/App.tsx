@@ -15,7 +15,7 @@ function App() {
 
 	useEffect(() => {
 		const Events = async () => {
-			const request = await axios.get("https://eonet.sci.gsfc.nasa.gov/api/v2.1/events")
+			const request = await axios.get("https://eonet.gsfc.nasa.gov/api/v2.1/events")
 			const { data } = await request
 			const { events } = await data
 
